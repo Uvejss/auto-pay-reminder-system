@@ -97,16 +97,18 @@ Go to **Money Tracker > Set Up Automation Triggers**, choose how often reminders
 ---
 
 ## 📂 Folder Structure
----
+
+```
 auto-pay-reminder-system/
 ├── sheets_template/
 │   └── MoneyTrackerTemplate.xlsx
 ├── scripts/
 │   └── Code.gs
-├── assets/
-│   └── screenshot.png
 ├── README.md
-└── LICENSE
+├── LICENSE
+└── assets/
+    └── screenshot.png
+```
 
 ---
 
