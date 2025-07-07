@@ -97,7 +97,7 @@ Go to **Money Tracker > Set Up Automation Triggers**, choose how often reminders
 ---
 
 ## 📂 Folder Structure
-
+---
 auto-pay-reminder-system/
 ├── sheets_template/
 │   └── MoneyTrackerTemplate.xlsx
