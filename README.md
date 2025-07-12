@@ -1,124 +1,109 @@
-# 🔔 Auto Pay Reminder System
+# Automated Payment Reminder System: Simplifying Your Finance Management
 
-Automated payment reminder tool using **Google Sheets**, **Apps Script**, and **Telegram Bot API**. Generates personalized, click-to-send **WhatsApp links** based on smart logic and reminder schedules — ideal for tracking pending payments or invoices.
+![Auto Pay Reminder System](https://img.shields.io/badge/Version-1.0-blue.svg) ![GitHub Releases](https://img.shields.io/badge/Releases-latest-orange.svg)
 
----
+## Table of Contents
 
-## 📸 Screenshot
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Customization](#customization)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
 
-![Screenshot of Google Sheet UI with Money Tracker Menu](assets/screenshot.png)
+## Overview
 
----
+The **Auto Pay Reminder System** is an automated tool designed to streamline your payment tracking process. It leverages Google Sheets, Apps Script, and the Telegram Bot API to send personalized payment reminders. This tool generates click-to-send WhatsApp links based on smart logic and reminder schedules. It's perfect for freelancers and small business owners who need to manage pending payments or invoices efficiently.
 
-## 🔧 Features
+To get started, check out the [Releases section](https://github.com/Uvejss/auto-pay-reminder-system/releases) for the latest version of the tool.
 
-- ✅ Fully automated via time-based triggers  
-- 📅 Smart filtering based on skip flags, paid status, and custom frequency  
-- 📲 WhatsApp message links using [wa.me](https://wa.me)  
-- 🤖 Telegram bot delivery for easy manual sending  
-- 📊 Google Sheets as your no-code backend
+## Features
 
----
+- **Automated Reminders**: Schedule reminders for pending payments.
+- **Personalized Links**: Generate custom WhatsApp links for easy communication.
+- **Smart Logic**: Use intelligent algorithms to determine when to send reminders.
+- **User-Friendly Interface**: Manage everything from Google Sheets.
+- **No Backend Required**: Works entirely within Google Apps.
+- **Cross-Platform**: Use on any device with access to Google Sheets and Telegram.
 
-## 💼 Use Cases
+## Technologies Used
 
-- Freelancers reminding clients of pending invoices  
-- Community or club dues collection  
-- Tracking shared expenses or personal IOUs  
-- Subscription or membership payment reminders  
+- **Google Sheets**: For data management and storage.
+- **Google Apps Script**: To automate tasks and integrate with Telegram.
+- **Telegram Bot API**: For sending reminders directly to users.
+- **WhatsApp Links**: To facilitate easy communication.
 
----
+## Installation
 
-## 🛠️ Tech Stack
+1. **Clone the Repository**: 
+   ```bash
+   git clone https://github.com/Uvejss/auto-pay-reminder-system.git
+   ```
+   
+2. **Open Google Sheets**: 
+   - Create a new Google Sheet or use an existing one to manage your payments.
 
-| Component            | Purpose                          |
-|---------------------|----------------------------------|
-| Google Sheets        | Acts as the structured database  |
-| Google Apps Script   | Automation engine (JavaScript)   |
-| Telegram Bot API     | Delivers daily batch messages    |
-| WhatsApp wa.me       | Pre-fills personalized messages  |
+3. **Add Apps Script**: 
+   - In your Google Sheet, go to `Extensions > Apps Script`.
+   - Copy and paste the code from the repository's `Code.gs` file.
 
----
+4. **Set Up Telegram Bot**: 
+   - Create a Telegram bot using the BotFather.
+   - Obtain your bot token and set it in the Apps Script.
 
-## 🚀 Getting Started
+5. **Authorize the Script**: 
+   - Run the script to authorize it to access your Google Sheets and send messages via Telegram.
 
-### 1. 📄 Copy the Sheet Template
+6. **Schedule Reminders**: 
+   - Use the built-in functions to set up your reminder schedules.
 
-- Use the provided Excel template: `sheets_template/MoneyTrackerTemplate.xlsx`
-- Upload it to Google Sheets
-- Rename the sheet tab if needed
+7. **Download the Latest Release**: 
+   - For the most recent updates and features, visit the [Releases section](https://github.com/Uvejss/auto-pay-reminder-system/releases).
 
----
+## Usage
 
-### 2. 🧠 Configure the Script
+### Setting Up Your Google Sheet
 
-In `scripts/Code.gs`, update the following config values:
+1. **Create Columns**: Set up columns for names, payment amounts, due dates, and contact information.
+   
+2. **Input Data**: Fill in the rows with your payment details.
 
-| Variable                   | Description                                 |
-|----------------------------|---------------------------------------------|
-| `SHEET_NAME`               | Your Google Sheet **name**                 |
-| `SHEET_WORKSHEET_NAME`     | Your worksheet/tab name (e.g., `Sheet1`)    |
-| `TELEGRAM_BOT_TOKEN`       | Your bot token from [@BotFather](https://t.me/BotFather) |
-| `YOUR_TELEGRAM_USER_CHAT_ID` | Your Telegram user ID (use `getUpdates`)     |
-| `YOUR_MAIN_WHATSAPP_NUMBER` | Your main number or brand                   |
-| `CUSTOM_MESSAGE_TEMPLATE`  | Customize the reminder message              |
-| `COL_*` indices            | Ensure they match your Google Sheet columns |
+3. **Run the Script**: 
+   - Trigger the script manually or set it to run automatically based on your preferences.
 
----
+### Example of Reminder Logic
 
-### 3. 🔌 Set Up Apps Script
+- The script checks due dates against the current date.
+- If a payment is due within a specified range (e.g., 3 days), it generates a WhatsApp link and sends a reminder via Telegram.
 
-- Open your Google Sheet
-- Click `Extensions > Apps Script`
-- Paste the code from `scripts/Code.gs` and save
-- Refresh the sheet
+### Sending Reminders
 
----
+- The bot sends a message to your Telegram account or group.
+- The message includes a personalized WhatsApp link for quick payment access.
 
-### 4. 📤 Manually Run the Script
+## Customization
 
-- Once saved and refreshed, a new menu called **"Money Tracker"** will appear on the toolbar (beside **Help**)
-- Click **Money Tracker**
-  - Select **Generate & Send Messages (Manual Run)** to test or run it manually
-  - WhatsApp links will be batch sent to your Telegram via your bot
+You can tailor the Auto Pay Reminder System to fit your needs:
 
----
+- **Change Reminder Frequency**: Adjust the script to send reminders daily, weekly, or monthly.
+- **Edit Message Templates**: Modify the messages sent via Telegram to match your style.
+- **Add More Features**: Extend functionality by integrating other APIs or services.
 
-### 5. 📅 Set Up Automation Triggers
+## Contributing
 
-Go to **Money Tracker > Set Up Automation Triggers**, choose how often reminders should be sent:
+We welcome contributions to enhance the Auto Pay Reminder System. Here’s how you can help:
 
-- 🔁 `Set Up Daily Trigger` – Run every day at 9 AM  
-- 📆 `Set Up Weekly Trigger` – Every Monday at 9 AM  
-- 🗓️ `Set Up Bi-Weekly Trigger` – Every 15 days (uses internal logic)  
-- 🗓️ `Set Up Monthly Trigger` – On 1st of every month at 9 AM  
-- ❌ `Delete All Triggers` – Remove all existing automation
+1. **Fork the Repository**: Create your own copy of the project.
+2. **Make Changes**: Implement your features or fixes.
+3. **Submit a Pull Request**: Share your changes with us for review.
 
----
+## License
 
-## 📂 Folder Structure
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-```
-auto-pay-reminder-system/
-├── sheets_template/
-│   └── MoneyTrackerTemplate.xlsx
-├── scripts/
-│   └── Code.gs
-├── README.md
-├── LICENSE
-└── assets/
-    └── screenshot.png
-```
+## Support
 
----
-
-
-## 📄 License
-
-MIT License – Free to use and adapt for personal or commercial projects.
-
----
-
-## 🙌 Contributions
-
-Feel free to fork, add support for email/SMS, or improve logic and UI. Pull requests welcome!
+For any issues or questions, feel free to open an issue on the GitHub repository or check the [Releases section](https://github.com/Uvejss/auto-pay-reminder-system/releases) for updates.
